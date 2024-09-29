@@ -18,7 +18,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.utils import six
 from django.utils.encoding impor force_str
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 import django_mobile_app_distribution.settings as app_dist_settings
 from django_mobile_app_distribution.exceptions import MobileAppDistributionConfigurationException
