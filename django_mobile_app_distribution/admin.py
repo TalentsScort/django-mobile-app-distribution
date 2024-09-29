@@ -18,7 +18,8 @@ else:
     from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
 from django.utils import translation
-from django.utils.translation import ugettext_lazy as _, ungettext_lazy
+from django.utils.translation import gettext_lazy as _ , ngettext_lazy
+
 
 from django_mobile_app_distribution import settings as _settings
 from django_mobile_app_distribution.models import IosApp, AndroidApp
