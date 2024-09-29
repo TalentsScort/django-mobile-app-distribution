@@ -96,7 +96,7 @@ class NotifiableModelAdmin(admin.ModelAdmin):
                 email.send(fail_silently=False)
                 messages.add_message(
                     request,
-                    messages.INFO, ungettext_lazy(
+                    messages.INFO, ngettext_lazy(
                         '%(recipient_count)s user was notified of %(app_name)s %(app_version)s availability.',
                         '%(recipient_count)s users were notified of %(app_name)s %(app_version)s availability.',
                         recipient_count) % {
