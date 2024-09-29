@@ -17,7 +17,7 @@ from django.contrib.sites.models import Site
 from django.db import models
 from django.db.models.signals import post_save
 from django.utils import six
-from django.utils.encoding import python_2_unicode_compatible, force_text
+from django.utils.encoding impor force_str
 from django.utils.translation import ugettext_lazy as _
 
 import django_mobile_app_distribution.settings as app_dist_settings
@@ -38,9 +38,9 @@ _MISSING_SITE_MESSAGE = "The site framework's domain name is used to generate th
                         "settings file matches the primary key of your current site."
 
 def normalize_filename(dirname, filename):
-    dirname = force_text(dirname)
-    filename = force_text(normalize('NFKD', filename).encode('ascii', 'ignore'))
-    return force_text(os.path.join(dirname, filename))
+    dirname = force_str(dirname)
+    filename = force_str(normalize('NFKD', filename).encode('ascii', 'ignore'))
+    return force_str(os.path.join(dirname, filename))
 
 
 def normalize_ios_filename(instance, filename):
@@ -54,7 +54,7 @@ def normalize_image_filename(instance, filename):
     return normalize_filename(app_dist_settings.MOBILE_APP_DISTRIBUTION_APP_ICON_DIRECTORY_NAME, filename)
 
 
-@python_2_unicode_compatible
+
 class UserInfo(models.Model):
     user = models.OneToOneField(User, verbose_name=_('user'), on_delete=models.deletion.CASCADE)
     language = models.CharField(max_length=20, choices=app_dist_settings.LANGUAGES, default=app_dist_settings.ENGLISH, verbose_name=_('language'))
@@ -67,7 +67,7 @@ class UserInfo(models.Model):
         verbose_name_plural = _('Extended user info')
 
 
-@python_2_unicode_compatible
+
 class App(models.Model):
     user = models.ForeignKey(User, blank=True, null=True, default=None, related_name='apps', verbose_name=_('User'), on_delete=models.deletion.CASCADE)
     groups = models.ManyToManyField(
