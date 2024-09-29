@@ -17,7 +17,7 @@ from django.contrib.sites.models import Site
 from django.db import models
 from django.db.models.signals import post_save
 from django.utils import six
-from django.utils.encoding impor force_str
+from django.utils.encoding import force_str
 from django.utils.translation import gettext_lazy as _
 
 import django_mobile_app_distribution.settings as app_dist_settings
